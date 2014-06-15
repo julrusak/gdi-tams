@@ -3,6 +3,14 @@ class EmailsController < ApplicationController
 
   before_action :set_resources
 
+  def kick_off
+    courses = Course.upcoming.includes(:series).sort_by(&:date)
+    @tas.each do |ta|
+      GdiMailer.kick_off(ta, courses).deliver
+    end
+    redirect_to admins_dashboard_path, notice: 'System kick off emails sent!'
+  end
+
   def welcome
     @ta = TeachingAssistant.find_by_id(params[:emails][:teaching_assistant])
     @ta.status = Status.find_by_label("pending")
