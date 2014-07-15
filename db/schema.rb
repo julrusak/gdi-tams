@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 20140713153339) do
     t.string   "pretty_date"
   end
 
+  create_table "email_histories", force: true do |t|
+    t.date    "date"
+    t.integer "admin_id"
+    t.string  "kind"
+    t.integer "teaching_assistant_id"
+  end
+
+  add_index "email_histories", ["admin_id"], name: "index_email_histories_on_admin_id", using: :btree
+
   create_table "hours", force: true do |t|
     t.integer  "course_id"
     t.integer  "teaching_assistant_id"
