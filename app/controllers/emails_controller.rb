@@ -6,8 +6,9 @@ class EmailsController < ApplicationController
   def kick_off
     courses = Course.upcoming.includes(:series).sort_by(&:date)
     @tas.each do |ta|
-      GdiMailer.kick_off(ta, courses).deliver
+      TeachingAssistantMailer.kick_off(ta, courses).deliver
     end
+    log_email("kick off")
     redirect_to admins_dashboard_path, notice: 'System kick off emails sent!'
   end
 
@@ -15,6 +16,7 @@ class EmailsController < ApplicationController
     @ta = TeachingAssistant.find_by_id(params[:emails][:teaching_assistant])
     @ta.status = Status.find_by_label("pending")
     if @ta.save
+      log_email("welcome", @ta)
       TeachingAssistantMailer.welcome(@ta).deliver
     end
     redirect_to admins_dashboard_path, notice: 'Email delivered, TA upgraded to pending.'
@@ -24,6 +26,7 @@ class EmailsController < ApplicationController
     month = Date.today.strftime("%B")
     courses = Course.upcoming.includes(:series).sort_by(&:date)
     @tas.each do |ta|
+      log_email("monthly", ta)
       TeachingAssistantMailer.monthly(ta, courses, month).deliver
     end
     redirect_to admins_dashboard_path, notice: 'Monthly emails delivered. Hooray!'

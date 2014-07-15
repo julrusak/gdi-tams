@@ -49,6 +49,8 @@
   .card
     %p
       This will email all Teaching Assistants! Use with caution.
+    %p
+      The last monthly email was sent on #{@monthly_email.date} by #{@monthly_email.admin.name}.
 
     = button_to 'Send monthly sign up email', { controller: :emails, action: :monthly }, method: :get
 
