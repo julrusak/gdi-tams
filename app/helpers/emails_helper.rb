@@ -6,11 +6,11 @@ module EmailsHelper
 
   def update_course_email_flag(course)
     course.email_sent = true
-    course.save
+    course.save!
   end
 
   def update_hour_email_flag(hour)
     hour.email_sent = true
-    hour.save
+    hour.save!
   end
 end
