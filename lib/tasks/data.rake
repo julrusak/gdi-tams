@@ -6,7 +6,7 @@ namespace :data do
       puts "Updating hours for #{courses.length} courses..."
       hours = Hour.where(course: courses)
       hours.each do |hour|
-        hour.update_attribute(email_sent, true)
+        hour.update_attribute(:email_sent, true)
         puts "Hour for #{hour.teaching_assistant.name} updated."
       end
     else
