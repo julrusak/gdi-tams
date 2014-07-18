@@ -81,6 +81,10 @@ class TeachingAssistant < ActiveRecord::Base
     hours.debit.where(course: course).present?
   end
 
+  def missing_email_for?(course)
+    !hours.where(course: course, teaching_assistant: self).first.email_sent
+  end
+
   private
   def generate_private_id
     self.private_id = SecureRandom.hex

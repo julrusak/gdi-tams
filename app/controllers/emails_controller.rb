@@ -1,4 +1,6 @@
 class EmailsController < ApplicationController
+  include EmailsHelper
+
   before_action :set_resources
 
   def welcome
@@ -21,12 +23,20 @@ class EmailsController < ApplicationController
 
   def confirmation
     @course = Course.find_by_id(params[:course_id])
-    @course.email_sent = true
-    if @course.save
-      @tas = @course.tas
-      @tas.each do |ta|
-        TeachingAssistantMailer.confirmation(ta, @course).deliver
-      end
+    update_all_email_flags(@course, @course.hours)
+    @tas = @course.tas
+    @tas.each do |ta|
+      TeachingAssistantMailer.confirmation(ta, @course).deliver
+    end
+    redirect_to admins_dashboard_path, notice: 'Email confirmation sent.'
+  end
+
+  def missing_confirmation
+    @course = Course.find_by_id(params[:course_id])
+    missing_hours = @course.hours.where(email_sent: false)
+    update_all_email_flags(@course, missing_hours)
+    missing_hours.map(&:teaching_assistant).each do |ta|
+      TeachingAssistantMailer.confirmation(ta, @course).deliver
     end
     redirect_to admins_dashboard_path, notice: 'Email confirmation sent.'
   end

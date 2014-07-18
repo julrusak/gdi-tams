@@ -38,6 +38,10 @@ a i {
   padding-right: 10px;
 }
 
+.margin-right__10px {
+  margin-right: 10px;
+}
+
 .padding-vertical__15px {
   @extend .padding-top__15px;
   @extend .padding-bottom__15px;
