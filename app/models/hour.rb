@@ -2,7 +2,7 @@ class Hour < ActiveRecord::Base
   belongs_to :teaching_assistant
   belongs_to :course
 
-  validates_presence_of :num, :teaching_assistant, :course, :email_sent
+  validates_presence_of :num, :teaching_assistant, :course
 
   validates :teaching_assistant, uniqueness: {scope: :course}
 
