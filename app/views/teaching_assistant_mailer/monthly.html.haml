@@ -7,15 +7,15 @@
   Additional course information is below, and can also be found on your private sign up page.
 
 %p.center
-  %a.button{href: "http://gdichicago.herokuapp.com/teaching_assistants/#{@ta['private_id']}"}
+  %a.button{href: "http://#{BASE_URL}/teaching_assistants/#{@ta['private_id']}"}
     View private sign up page
   %br
   %br
   %span.small
     Or copy this link into your browser:
     %br
-    %a{href: "http://gdichicago.herokuapp.com/teaching_assistants/#{@ta['private_id']}"}
-      http://gdichicago.herokuapp.com/teaching_assistants/#{@ta['private_id']}
+    %a{href: "http://#{BASE_URL}/teaching_assistants/#{@ta['private_id']}"}
+      http://#{BASE_URL}/teaching_assistants/#{@ta['private_id']}
 
 %h2 Upcoming Courses
 
@@ -31,17 +31,17 @@
 %h2 Sign up
 
 %p.center
-  %a.button{href: "http://gdichicago.herokuapp.com/teaching_assistants/#{@ta['private_id']}"}
+  %a.button{href: "http://#{BASE_URL}/teaching_assistants/#{@ta['private_id']}"}
     View private sign up page
   %br
   %span.small
     Or copy this link into your browser:
     %br
     %br
-    %a{href: "http://gdichicago.herokuapp.com/teaching_assistants/#{@ta['private_id']}"}
-      http://gdichicago.herokuapp.com/teaching_assistants/#{@ta['private_id']}
+    %a{href: "http://#{BASE_URL}/teaching_assistants/#{@ta['private_id']}"}
+      http://#{BASE_URL}/teaching_assistants/#{@ta['private_id']}
 
 #footer.small
   %p
-    %b This email was sent because you signed up with <a href="http://gdichicago.herokuapp.com">GDI Chicago</a> as a volunteer TA.
+    %b This email was sent because you signed up with <a href="http://#{BASE_URL}">#{CHAPTER_NAME}</a> as a volunteer TA.
     To remove yourself from the list, visit your private sign up page and mark yourself as inactive.

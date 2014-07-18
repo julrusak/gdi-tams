@@ -2,7 +2,7 @@ class AdminMailer < ActionMailer::Base
   include Resque::Mailer
 
   default to: Proc.new { Admin.pluck(:email) },
-          from: '"Liz at GDI Chicago" <liza@girldevelopit.com>'
+          from: %Q["#{FROM_EMAIL_NAME}" <#{FROM_EMAIL}>]
 
   layout 'mailer'
 
@@ -11,6 +11,6 @@ class AdminMailer < ActionMailer::Base
     @about = CGI.escapeHTML(screeners[:about]) || 'Answer not provided.'
     @how = CGI.escapeHTML(screeners[:how]) || 'Answer not provided.'
     @why = CGI.escapeHTML(screeners[:why]) || 'Answer not provided.'
-    mail(subject: "GDI Chicago: New TA application received")
+    mail(subject: "#{CHAPTER_NAME}: New TA application received")
   end
 end

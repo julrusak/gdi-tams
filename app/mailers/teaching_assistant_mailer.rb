@@ -1,23 +1,23 @@
 class TeachingAssistantMailer < ActionMailer::Base
   include Resque::Mailer
 
-  default from: '"Liz at GDI Chicago" <liza@girldevelopit.com>'
+  default from: %Q["#{FROM_EMAIL_NAME}" <#{FROM_EMAIL}>]
   layout 'mailer'
 
   def welcome(ta)
     @ta = ta
-    mail(to: @ta['email'], subject: "GDI Chicago: Your TA application is approved!")
+    mail(to: @ta['email'], subject: "#{CHAPTER_NAME}: Your TA application is approved!")
   end
 
   def pending(ta)
     @ta = ta
-    mail(to: @ta['email'], subject: "GDI Chicago: Application received")
+    mail(to: @ta['email'], subject: "#{CHAPTER_NAME}: Application received")
   end
 
   def monthly(ta, courses, month)
     @ta = ta
     @courses = courses
-    mail(to: @ta['email'], subject: "GDI Chicago: Monthly TA sign ups - #{month}!")
+    mail(to: @ta['email'], subject: "#{CHAPTER_NAME}: Monthly TA sign ups - #{month}!")
   end
 
   def confirmation(ta, course)

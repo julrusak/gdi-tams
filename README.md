@@ -1,4 +1,4 @@
-# GDI Chicago TAMS
+# GDI TAMS
 
 ![Codeship](https://codeship.io/projects/ceff6e60-cbc9-0131-1542-069c58d51f38/status)
 
@@ -43,3 +43,12 @@ And launch the app using Foreman:
 ```
 $ foreman start
 ```
+
+## Configuring environmental parameters
+
+There are several environment variables that need to be set in order to customize TAMS for your chapter:
+
+- `CHAPTER_NAME` : defaults to "GDI Chicago". A case-sensitive, human-readable expression of your chapter name.
+- `BASE_URL` : defaults to "gdichicago.com". The URL where you will be hosting this version of TAMS.
+- `FROM_EMAIL` : defaults to "liza@gdichicago.com". The email from which all emails will be sent.
+- `FROM_EMAIL_NAME` : defaults to "Liz at GDI Chicago". The human-readable name which emails will be sent with.
