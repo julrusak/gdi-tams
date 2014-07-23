@@ -1,6 +1,6 @@
 TA Sign Ups - and a new system!
 
-Hello #{@ta['name']}! One of the most time-consuming aspects of GDI Chicago's daily operations is coordinating with our volunteer TAs. It takes a lot of time to make that silly momthly sign up for and send out emails to everyone who signed up. The entire sign up process is now completely automated!
+Hello <%= @ta['name'] %>! One of the most time-consuming aspects of GDI Chicago's daily operations is coordinating with our volunteer TAs. It takes a lot of time to make that silly momthly sign up for and send out emails to everyone who signed up. The entire sign up process is now completely automated!
 
 This orientation email contains all sorts of information about how to sign up, earning class credit, and reminder emails, and some info about upcoming classes. Future emails won't be this long, promise!
 
@@ -8,7 +8,7 @@ Additional course information is below, and can also be found on your private si
 
 *** Private sign up page ***
 
-http://#{BASE_URL}/sign_ups/#{@ta['private_id']}
+<%= "http://#{BASE_URL}/sign_ups/#{@ta['private_id']}" %>
 
 =======================================
 
@@ -16,15 +16,15 @@ http://#{BASE_URL}/sign_ups/#{@ta['private_id']}
 
 For additional information about the course, click the course name. You will be taken to the Meetup page.
 
-- @courses.each do |course|
-
-  * #{course['name']} - #{course['url']}
+<% @courses.each do |course| %>
+  * <%= course['name'] %> - <%= course['url'] %>
+<% end %>
 
 =======================================
 
 *** Sign up ***
 
-http://#{BASE_URL}/teaching_assistants/#{@ta['private_id']}
+<%= "http://#{BASE_URL}/teaching_assistants/#{@ta['private_id']}" %>
 
 Your private sign up page contains:
 
@@ -35,7 +35,7 @@ Your private sign up page contains:
 
 =======================================
 
-This email was sent because you signed up with #{CHAPTER_NAME} as a volunteer TA.
+This email was sent because you signed up with <%= CHAPTER_NAME %> as a volunteer TA.
 
 To remove yourself from the list, visit your private sign up page and mark yourself as inactive.
 
