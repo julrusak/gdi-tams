@@ -59,6 +59,10 @@ class Course < ActiveRecord::Base
     !email_sent && teaching_assistants.any? && date < 10.days.from_now && date > Date.today
   end
 
+  def missing_emails?
+    email_sent && hours.map(&:email_sent).uniq.include?(false)
+  end
+
   private
   def format_pretty_dates
     self.pretty_date = self.date.strftime("%B %e, %Y (%A)")
