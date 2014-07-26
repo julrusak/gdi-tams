@@ -50,5 +50,6 @@ There are several environment variables that need to be set in order to customiz
 
 - `CHAPTER_NAME` : defaults to "GDI Chicago". A case-sensitive, human-readable expression of your chapter name.
 - `BASE_URL` : defaults to "gdichicago.com". The URL where you will be hosting this version of TAMS.
-- `FROM_EMAIL` : defaults to "liza@gdichicago.com". The email from which all emails will be sent.
+- `FROM_EMAIL` : defaults to "liza@girldevelopit.com". The email from which all emails will be sent.
 - `FROM_EMAIL_NAME` : defaults to "Liz at GDI Chicago". The human-readable name which emails will be sent with.
+- `MATERIALS_URL`: defaults to "gdichicago.com/classes". The URL where course materials are available for TAs.
