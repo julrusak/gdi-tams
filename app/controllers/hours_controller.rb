@@ -28,6 +28,8 @@ class HoursController < ApplicationController
 
     if is_admin?
       redirect_to admins_dashboard_path, notice: 'Hour was successfully created.'
+    elsif @hour.new_record?
+      redirect_to teaching_assistant_path(private_id), notice: 'Something went wrong.'
     else
       redirect_to teaching_assistant_path(private_id), notice: 'Got it! See you in class.'
     end
@@ -38,12 +40,14 @@ class HoursController < ApplicationController
     ta = TeachingAssistant.find(params[:hour][:teaching_assistant_id])
     private_id = ta.private_id
 
-    build_series_hours(series, ta)
+    success = build_series_hours(series, ta)
 
     if is_admin?
       redirect_to admins_dashboard_path, notice: 'Hour was successfully created.'
-    else
+    elsif success
       redirect_to teaching_assistant_path(private_id), notice: 'Got it! See you in class.'
+    else
+      redirect_to teaching_assistant_path(private_id), notice: 'Something went wrong.'
     end
   end
 
