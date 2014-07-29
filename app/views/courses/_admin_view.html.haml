@@ -44,9 +44,6 @@
       %small
         Email sent, but some TAs are missing emails because they signed up late. Click the button below to email all TAs who haven't yet received a confirmation email.
         = button_to 'Re-send emails', { controller: :emails, action: :missing_confirmation }, method: :get,  params: { course_id: course.id }
-    - elsif course.email_sent?
-      Email sent.
-      = link_to "Remove flag.", "#"
     - elsif course.is_past?
       No email options.
     - else
