@@ -46,6 +46,8 @@
         = button_to 'Re-send emails', { controller: :emails, action: :missing_confirmation }, method: :get,  params: { course_id: course.id }
     - elsif course.is_past?
       No email options.
+    - elsif course.email_sent?
+      Email sent.
     - else
       Can't email yet!
 
