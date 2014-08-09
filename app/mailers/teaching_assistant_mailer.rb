@@ -30,4 +30,9 @@ class TeachingAssistantMailer < ActionMailer::Base
     @ta = ta
     mail(to: @ta['email'], subject: "Here's your private sign up page")
   end
+
+  def etiquette(ta)
+    @ta = ta
+    mail(to: @ta['email'], subject: "Important: tips for being an awesome TA")
+  end
 end
