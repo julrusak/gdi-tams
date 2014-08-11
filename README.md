@@ -29,7 +29,7 @@ And you should probably create an Admin user:
 
 ```
 $ rails c
-$ Admin.create!(name: "Me", password: "hello", password_confirmation: "hello")
+$ Admin.create!(name: "Me", password: "hello", password_confirmation: "hello", email: "email@domain.com")
 ```
 
 And then to start up, you need Redis running:
