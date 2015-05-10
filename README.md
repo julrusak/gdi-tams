@@ -1,6 +1,6 @@
 # GDI TAMS
 
-![Codeship Status for gdichicago/gdi-tams](https://codeship.com/projects/e87d9e80-d98c-0132-4083-663757f654ab/status?branch=stable)](https://codeship.com/projects/79037)
+[![Codeship Status for gdichicago/gdi-tams](https://codeship.com/projects/e87d9e80-d98c-0132-4083-663757f654ab/status?branch=stable)](https://codeship.com/projects/79037)
 
 TAMS: Teaching Assistant Management System
 
