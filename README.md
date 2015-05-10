@@ -53,3 +53,5 @@ There are several environment variables that need to be set in order to customiz
 - `FROM_EMAIL` : defaults to "chicago@girldevelopit.com". The email from which all emails will be sent.
 - `FROM_EMAIL_NAME` : defaults to "GDI Chicago". The human-readable name which emails will be sent with.
 - `MATERIALS_URL`: defaults to "gdichicago.com/classes". The URL where course materials are available for TAs.
+
+## Deployment Instructions
