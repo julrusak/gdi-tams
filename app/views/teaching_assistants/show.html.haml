@@ -73,13 +73,14 @@
   #sign_up
     - if @series.any?
       - @series.each do |s|
-        .card
-          %h2
-            Series:
-            = s.name
-          = button_to "RSVP Yes for all Courses in Series", { controller: :hours, action: :mass_create, hour: { course_id: s.courses.first.id, teaching_assistant_id: @teaching_assistant.id, series_id: s.id } }, method: :post
-        - s.upcoming_courses_by_date.each do |course|
-          = render partial: 'courses/ta_view', locals: { course: course, teaching_assistant: @teaching_assistant }
+        - if s.courses.any?
+          .card
+            %h2
+              Series:
+              = s.name
+            = button_to "RSVP Yes for all Courses in Series", { controller: :hours, action: :mass_create, hour: { course_id: s.courses.first.id, teaching_assistant_id: @teaching_assistant.id, series_id: s.id } }, method: :post
+          - s.upcoming_courses_by_date.each do |course|
+            = render partial: 'courses/ta_view', locals: { course: course, teaching_assistant: @teaching_assistant }
 
     .container__30px_30px_10px_30px
       %h2 Single-day Courses
