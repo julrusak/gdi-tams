@@ -44,14 +44,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
-    columnize (0.8.9)
     database_cleaner (1.2.0)
-    debugger (1.6.6)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.2.0)
-      debugger-ruby_core_source (~> 1.3.2)
-    debugger-linecache (1.2.0)
-    debugger-ruby_core_source (1.3.5)
     diff-lcs (1.2.5)
     docile (1.1.3)
     erubis (2.7.0)
@@ -195,7 +188,6 @@ DEPENDENCIES
   bitters (~> 0.9.5)
   bourbon (~> 3.2)
   database_cleaner
-  debugger
   factory_girl_rails (~> 3.6.0)
   faker
   foreman
@@ -215,3 +207,6 @@ DEPENDENCIES
   turbolinks (~> 2.2.2)
   uglifier (>= 1.3.0)
   unicorn (~> 4.6.2)
+
+BUNDLED WITH
+   1.11.2

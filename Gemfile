@@ -21,7 +21,6 @@ gem 'bitters', '~> 0.9.5'
 
 # Testing/dev
 gem 'rspec-rails', group: :test
-gem 'debugger', group: [:development, :test]
 gem 'database_cleaner', group: :test
 gem 'faker', group: :test
 gem 'factory_girl_rails', '~> 3.6.0', group: :test
